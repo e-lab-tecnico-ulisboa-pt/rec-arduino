@@ -51,12 +51,12 @@ extern class experiment {
     };
 
     char id[ID_SIZE + 1];
-    unsigned int p_run; //current protocol
-  public:
     char rbuf[RBUF_SIZE];
-    int param[NARGUMENTS];
+    unsigned int p_run; //current protocol
     int command_received, stop, reset;
+
   public:
+    int param[NARGUMENTS];
     proto *protocol[NPROTOCOLS + 1];
 
 
@@ -112,7 +112,7 @@ extern class experiment {
           protocol[p_run]->configuring();
           state = CONFIGURED;
           Serial.print("CFGOK\r");
-          if(DEBUG) Serial.print("\n");
+          if (DEBUG) Serial.print("\n");
         case CONFIGURED:
           rec_generic_driver();
           break;
@@ -120,7 +120,7 @@ extern class experiment {
           protocol[p_run]->starting();
           state = STARTED;
           Serial.print("STROK\r");
-          if(DEBUG) Serial.print("\n");
+          if (DEBUG) Serial.print("\n");
           protocol[p_run]->started();
         case STARTED:
           rec_generic_driver();
@@ -128,7 +128,7 @@ extern class experiment {
         case RESETING:
           state = RESETED;
           Serial.print("RSTOK\r");
-          if(DEBUG) Serial.print("\n");
+          if (DEBUG) Serial.print("\n");
         case RESETED:
           rec_generic_driver();
           break;
@@ -231,7 +231,5 @@ extern class experiment {
 
     }
 } expr;
-
-
 
 #endif

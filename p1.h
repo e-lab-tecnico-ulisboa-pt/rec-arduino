@@ -1,5 +1,5 @@
 //Protocol 1 class
-
+#include "rec.h"
 
 //Defining every function is opcional, as they can be defined as common for all protocols
 //Defining them here will override the default only for this protocol
