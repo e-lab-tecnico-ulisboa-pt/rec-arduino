@@ -17,7 +17,7 @@ This laboratory provides remote control of real physics experiments over the Int
 (Replace ? with the protocol number)
 
 file p?.h
-'''
+```
 //Protocol ? class
 
 
@@ -42,4 +42,4 @@ extern class P?: public proto {
       if (DEBUG) Serial.println("?_started");
     }
 } PP?;
-'''
+```
