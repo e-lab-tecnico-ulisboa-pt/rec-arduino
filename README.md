@@ -56,6 +56,28 @@ This commands runs function `configuring()` for the selected protocol.
 
 ###Data
 Data is to be sent back in the `started()` function as soon as available (no action required from the user). Data transmission starts with a `DAT\r` and ends with a `END\r`. Data is to be sent in lines. In each line values are separated by a `\t` and end with a `\r`.
+Example:
+```C
+
+//Begin data transmission
+Serial.print("DAT\r");
+if (DEBUG) Serial.println("\n");
+
+//New line of data
+Serial.print(1);
+Serial.print("\t");
+Serial.print(2);
+Serial.print("\t");
+//...
+Serial.print(101);
+Serial.print("\r");
+if (DEBUG) Serial.println("\n");
+//end of data line (multiple lines can be added here
+
+//End data transmission
+Serial.print("END\r");
+if (DEBUG) Serial.println("\n");
+```
 
 ##Using this library
 Simply clone this repository and open the file `e-lab.ino`.
