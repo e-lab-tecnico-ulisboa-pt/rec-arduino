@@ -38,9 +38,12 @@ This command configures the experiment to run protocol number 2 with parameters:
 
 Variable | Value
 ------------ | -------------
+p_run         | 2
 expr.param[0] | 45
 expr.param[1] | 9
 expr.param[2] | 24
+
+> You should not use p_run unless you know what you are doing
 
 > Note that the number of parameters must be the same for all protocols (but not all need to be used)
 
