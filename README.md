@@ -1,9 +1,9 @@
-# e-lab's REC for arduino
+# e-lab's ReC for arduino
 
-This repository aims to provide the official library of e-lab's REC for the arduino platform: A tool to control remote experiments within (but not limited to) the e-lab infrastructure. It is written in C++.
+This repository aims to provide the official library of e-lab's ReC for the arduino platform: A tool to control remote experiments within (but not limited to) the e-lab infrastructure. It is written in C++.
 
 ##e-lab
-e-lab http://www.elab.ist.utl.pt is a remotely controlled laboratory localized at Instituto Superior Técnico (IST) of the University of Lisbon.
+[e-lab](http://www.elab.ist.utl.pt) is a remotely controlled laboratory localized at Instituto Superior Técnico (IST) of the University of Lisbon.
 
 This laboratory provides remote control of real physics experiments over the Internet. It’s main purposes are:
 
@@ -13,13 +13,39 @@ This laboratory provides remote control of real physics experiments over the Int
 - to allow the realization of not so safe experiments (e.g. radioactivity), and
 - to provide expensive experiments which can not be acquired by a school or institution. Because of this, e-lab is a free, accessible, remotely controlled laboratory and can be accessed by everyone which has a computer with internet.
 
-##using the library
-Simply clone this repository and open the file "e-lab.ino".
+##Rec Generic Driver
+In the e-lab laboratory, experiments are controlled using the ReC (Remote Experiment Control) Generic Driver, a standard protocol for all experiments. It is based on a state machine with 4 possible states, as well as 4 transition states, where states in **bold** are active states, for which functions shall be defined as explained below.
+- **stopping**
+- stopped
+- **configuring**
+- configured
+- **starting**
+- **started**
+- reseting
+- reseted
+
+Communication between software (user) and hardware is made through a serial connection. This is handled by the library (baudrate can be changed at `user_define.h`, default 115200). The software (user) interacts with the following commands:
+- `cfg`: configuration string. It accepts a minimum of 2 and a maximum of `NPROTOCOLS + 1`. The first argument is always the protocol number.
+
+
+Example for a 3 parameters experiment:
+```
+cfg 2 45 9 24
+```
+This command configures the experiment to run protocol number 2 with parameters param[0] = 45, param[1] = 9, param[2] = 24.
+> Note that the number of parameters must be the same for all protocols (but not all need to be used)
+
+
+
+
+
+##Using the library
+Simply clone this repository and open the file `e-lab.ino`.
 
 ##Adding a new protocol
 (Replace ? with the protocol number)
 
-1) Add a file named p?.h according to the following model 
+1) Add a file named `p?.h` according to the following model 
 ```
 //Protocol ? class
 
@@ -46,17 +72,17 @@ extern class P?: public proto {
     }
 } PP?;
 ```
-2) Change the value of NPROTOCOLS in "user_define.h" for the appropriate number
+2) Change the value of NPROTOCOLS in `user_define.h` for the appropriate number
 ```
 #define NPROTOCOLS ?
 ```
 
 
 3) Write the intended code within
-- stopping()
-- configured()
-- starting()
-- started()
+- `stopping()`
+- `configured()`
+- `starting()`
+- `started()`
 
-If one of the above functions is to be used in several protocols, consider defining it at "pdefault.h".
-In this case clear the references to this functions at "p?.h"
+If one of the above functions is to be used in several protocols, consider defining it at `pdefault.h`.
+In this case clear the references to this functions at `p?.h`.
