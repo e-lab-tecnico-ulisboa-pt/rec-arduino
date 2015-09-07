@@ -13,10 +13,13 @@ This laboratory provides remote control of real physics experiments over the Int
 - to allow the realization of not so safe experiments (e.g. radioactivity), and
 - to provide expensive experiments which can not be acquired by a school or institution. Because of this, e-lab is a free, accessible, remotely controlled laboratory and can be accessed by everyone which has a computer with internet.
 
-##Adding a protocol
+##using the library
+Simply clone this repository and open the file "e-lab.ino".
+
+##Adding a new protocol
 (Replace ? with the protocol number)
 
-file p?.h
+1) Add a file named p?.h according to the following model 
 ```
 //Protocol ? class
 
@@ -43,3 +46,17 @@ extern class P?: public proto {
     }
 } PP?;
 ```
+2) Change the value of NPROTOCOLS in "user_define.h" for the appropriate number
+```
+#define NPROTOCOLS ?
+```
+
+
+3) Write the intended code within
+- stopping()
+- configured()
+- starting()
+- started()
+
+If one of the above functions is to be used in several protocols, consider defining it at "pdefault.h".
+In this case clear the references to this functions at "p?.h"
