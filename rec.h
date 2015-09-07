@@ -52,10 +52,10 @@ extern class experiment {
 
     char id[ID_SIZE + 1];
     char rbuf[RBUF_SIZE];
-    unsigned int p_run; //current protocol
     int command_received, stop, reset;
 
-  public:
+public:
+    unsigned int p_run; //current protocol
     int param[NARGUMENTS];
     proto *protocol[NPROTOCOLS + 1];
 
