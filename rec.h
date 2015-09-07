@@ -11,6 +11,7 @@
 
 #define TIMEOUT 30000 //miliseconds
 
+
 class proto {
   public:
     virtual void stopping();
@@ -74,6 +75,7 @@ class experiment {
       Serial.begin(BAUDRATE);
       while (!Serial);
       if (DEBUG) Serial.println("--- Welcome ---");
+
 
     }
 
@@ -225,8 +227,6 @@ class experiment {
           reset = 0;
 
         }
-
-
 
         command_received = 0;
       }
