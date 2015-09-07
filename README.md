@@ -36,28 +36,28 @@ The execution of the experiment uses *protocols*. The same apparatus can be runn
 The software (user) interacts with the following commands:
 - `cfg`: configuration string. It accepts a minimum of 2 and a maximum of `NARGUMENTS + 1` arguments. The first argument is always the protocol number. The following `NARGUMENTS` arguments, separated by spaces or `\r` will be stored at `param` vector.
 
-Example for a 3 parameters experiment:
+  Example for a 3 parameters experiment:
 ```
 cfg 2 45 9 24
 ```
-This command configures the experiment to run protocol number 2 with parameters:
+  This command configures the experiment to run protocol number 2 with parameters:
 
-Variable | Value
------------- | -------------
-p_run         | 2
-expr.param[0] | 45
-expr.param[1] | 9
-expr.param[2] | 24
+  Variable | Value
+  ------------ | -------------
+  p_run         | 2
+  expr.param[0] | 45
+  expr.param[1] | 9
+  expr.param[2] | 24
 
-> You should not use p_run unless you know what you are doing
+  > You should not use p_run unless you know what you are doing
 
-> Note that the number of parameters must be the same for all protocols (but not all need to be used)
+  > Note that the number of parameters must be the same for all protocols (but not all need to be used)
 
-> Only integer values are accepted. If you are on the need for decimal values, consider modifing the scale (using miliseconds instead of seconds for example)
+  > Only integer values are accepted. If you are on the need for decimal values, consider modifing the scale (using miliseconds instead of seconds for example)
 
 
 
-This commands runs function `configuring()` for the selected protocol.
+  This commands runs function `configuring()` for the selected protocol.
 
 - `str`: start instruction. After receiving this command the experiment will start executing by running function `starting()` of the selected protocol. No arguments are needed. When this function ends, function `started()` of the selected protocol will start.
 - `stp`: stop instruction. After receiving this command the experiment will stop executing by running function `stopping()` of the selected protocol. No arguments are needed.
