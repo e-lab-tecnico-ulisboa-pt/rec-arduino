@@ -34,7 +34,8 @@ The execution of the experiment uses *protocols*. The same apparatus can be runn
 
 ###Commands
 The software (user) interacts with the following commands:
-- `cfg`: configuration string. It accepts a minimum of 2 and a maximum of `NARGUMENTS + 1` arguments. The first argument is always the protocol number. The following `NARGUMENTS` arguments, separated by spaces or `\r` will be stored at `param` vector.
+#### `cfg` - Configuration string.
+It accepts a minimum of 2 and a maximum of `NARGUMENTS + 1` arguments. The first argument is always the protocol number. The following `NARGUMENTS` arguments, separated by spaces or `\r` will be stored at `param` vector.
 
   Example for a 3 parameters experiment:
 ```
@@ -55,13 +56,16 @@ cfg 2 45 9 24
 
   > Only integer values are accepted. If you are on the need for decimal values, consider modifing the scale (using miliseconds instead of seconds for example)
 
-
-
   This commands runs function `configuring()` for the selected protocol.
 
-- `str`: start instruction. After receiving this command the experiment will start executing by running function `starting()` of the selected protocol. No arguments are needed. When this function ends, function `started()` of the selected protocol will start.
-- `stp`: stop instruction. After receiving this command the experiment will stop executing by running function `stopping()` of the selected protocol. No arguments are needed.
-- `rst`: reset instruction. Normaly not used. No arguments are needed.
+#### `str` - Start instruction.
+After receiving this command the experiment will start executing by running function `starting()` of the selected protocol. No arguments are needed. When this function ends, function `started()` of the selected protocol will start.
+#### `stp` - Stop instruction.
+After receiving this command the experiment will stop executing by running function `stopping()` of the selected protocol. No arguments are needed.
+#### `rst`- Reset instruction.
+Normally not used. No arguments are needed.
+#### `cur` - Print current configuration.
+Normally not used. No arguments are needed.
 
 ###Data
 Data is to be sent back in the `started()` function as soon as available (no action required from the user). Data transmission starts with a `DAT\r` and ends with a `END\r`. Data is to be sent in lines. In each line values are separated by a `\t` and end with a `\r`.
