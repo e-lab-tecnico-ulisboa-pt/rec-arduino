@@ -38,9 +38,9 @@ This command configures the experiment to run protocol number 2 with parameters:
 
 Variable | Value
 ------------ | -------------
-param[0] | 45
-param[1] | 9
-param[2] | 24
+expr.param[0] | 45
+expr.param[1] | 9
+expr.param[2] | 24
 
 > Note that the number of parameters must be the same for all protocols (but not all need to be used)
 
