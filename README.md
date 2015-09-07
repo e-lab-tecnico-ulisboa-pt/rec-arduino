@@ -35,7 +35,7 @@ The execution of the experiment uses *protocols*. The same apparatus can be runn
 ###Commands
 The software (user) interacts with the following commands:
 #### `cfg` - Configuration string.
-It accepts a minimum of 2 and a maximum of `NARGUMENTS` + 1 arguments. The first argument is always the protocol number. The following `NARGUMENTS` arguments, separated by spaces or `\r` will be stored at `param` vector.
+It accepts a minimum of 2 and a maximum of 1 + `NARGUMENTS` arguments. The first argument is always the protocol number. The following `NARGUMENTS` arguments, separated by spaces or `\r` will be stored at `param` vector.
 
   Example for a 3 parameters (`NARGUMENTS` = 3) experiment:
 ```
