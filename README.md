@@ -1,4 +1,4 @@
-# e-lab's ReC Generic Driver for arduino
+# e-lab's ReC generic driver for Arduino
 
 This repository aims to provide the official library of e-lab's ReC for the arduino platform: A tool to control remote experiments within (but not limited to) the e-lab infrastructure. It is written in C++.
 
