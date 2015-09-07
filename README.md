@@ -94,7 +94,7 @@ Add the code to the appropriate functions, as described below.
 
 ##Adding a new protocol
 
-> Replace `?` with the protocol number.
+> Find/Replace all `?` with the protocol number.
 >`?` must be a positive integer.
 > Do not skip numbers
 
