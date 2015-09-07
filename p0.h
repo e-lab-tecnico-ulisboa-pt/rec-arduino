@@ -1,27 +1,24 @@
 //Protocol 0 class
-
 //This protocol shall be used for help and/or debug purposes
-class P0: public proto {
+
+//Defining every function is opcional, as they can be defined as common for all protocols
+//Defining them here will override the default only for this protocol
+
+extern class P0: public proto {
   public:
-//Defining stopping function is opcional, as it has already been defined
-//Defining it here will override the default only for this protocol
-//A similar approach can be used with configuring(), starting() and started()
-/*
     void stopping() {
-      if(DEBUG) Serial.println("0stopping");
+      if (DEBUG) Serial.println("0_stopping");
     }
-*/
-    void configuring() { 
-      if(DEBUG) Serial.println("0configuring");
+
+    void configuring() {
+      if (DEBUG) Serial.println("0_configuring");
     }
 
     void starting() {
-      if(DEBUG) Serial.println("0starting");
+      if (DEBUG) Serial.println("0_starting");
     }
 
     void started() {
-      if(DEBUG) Serial.println("0started");
+      if (DEBUG) Serial.println("0_started");
     }
-};
-
-extern P0 PP0;
+} PP0;

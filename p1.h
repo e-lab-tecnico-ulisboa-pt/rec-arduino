@@ -1,25 +1,24 @@
 //Protocol 1 class
-class P1: public proto {
+
+
+//Defining every function is opcional, as they can be defined as common for all protocols
+//Defining them here will override the default only for this protocol
+
+extern class P1: public proto {
   public:
-//Defining stopping function is opcional, as it has already been defined
-//Defining it here will override the default for this protocol
-//A similar approach can be used with configuring(), starting() and started()
-/*
     void stopping() {
-      if(DEBUG) Serial.println("1stopping");
+      if (DEBUG) Serial.println("1_stopping");
     }
-*/
+
     void configuring() {
-      if(DEBUG) Serial.println("1configuring");
+      if (DEBUG) Serial.println("1_configuring");
     }
 
     void starting() {
-      if(DEBUG) Serial.println("1starting");
+      if (DEBUG) Serial.println("1_starting");
     }
 
     void started() {
-      if(DEBUG) Serial.println("1started");
+      if (DEBUG) Serial.println("1_started");
     }
-};
-
-extern P1 PP1;
+} PP1;

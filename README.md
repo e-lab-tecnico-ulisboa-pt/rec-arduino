@@ -13,3 +13,33 @@ This laboratory provides remote control of real physics experiments over the Int
 - to allow the realization of not so safe experiments (e.g. radioactivity), and
 - to provide expensive experiments which can not be acquired by a school or institution. Because of this, e-lab is a free, accessible, remotely controlled laboratory and can be accessed by everyone which has a computer with internet.
 
+##Adding a protocol
+(Replace ? with the protocol number)
+
+file p?.h
+'''
+//Protocol ? class
+
+
+//Defining every function is opcional, as they can be defined as common for all protocols
+//Defining them here will override the default only for this protocol
+
+extern class P?: public proto {
+  public:
+    void stopping() {
+      if (DEBUG) Serial.println("?_stopping");
+    }
+
+    void configuring() {
+      if (DEBUG) Serial.println("?_configuring");
+    }
+
+    void starting() {
+      if (DEBUG) Serial.println("?_starting");
+    }
+
+    void started() {
+      if (DEBUG) Serial.println("?_started");
+    }
+} PP?;
+'''

@@ -1,3 +1,5 @@
+//There shall be no need to change anything in this file, unless you know what you are doing
+
 #ifndef REC_H
 #define REC_H
 
@@ -11,26 +13,19 @@
 
 #define TIMEOUT 30000 //miliseconds
 
+extern void serialEvent();
+extern void init_pointers();
 
 class proto {
   public:
     virtual void stopping();
-    /*{
-      if(DEBUG) Serial.println("stopping() function is not configured for this protocol");
-    }*/
-    virtual void configuring() {
-      if(DEBUG) Serial.println("configuring() function is not configured for this protocol");
-    }
-    virtual void starting() {
-      if(DEBUG) Serial.println("starting() function is not configured for this protocol");
-    }
-    virtual void started() {
-      if(DEBUG) Serial.println("started() function is not configured for this protocol");
-    }
+    virtual void configuring();
+    virtual void starting();
+    virtual void started();
 };
 
 
-class experiment {
+extern class experiment {
   private:
 
     enum {
@@ -76,6 +71,7 @@ class experiment {
       while (!Serial);
       if (DEBUG) Serial.println("--- Welcome ---");
 
+      init_pointers();
 
     }
 
@@ -232,10 +228,8 @@ class experiment {
       }
 
     }
-};
+} expr;
 
-extern experiment expr;
 
-extern void serialEvent();
 
 #endif
