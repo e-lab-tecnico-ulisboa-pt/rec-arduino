@@ -15,4 +15,4 @@ Communication between software (user) and hardware is made through a serial conn
 
 Information is passed from the computer to the Arduino with standardized *commands*, and from it to the computer in a preformated string - *data*. The execution of the experiment uses *protocols*.
 
-Please refer to the [Wiki](../../wiki) for more detailed documentation.
+Please refer to the [Wiki](../../wiki) for more detailed documentation. If you found a bug or want to contact the development team, please open an issue.
