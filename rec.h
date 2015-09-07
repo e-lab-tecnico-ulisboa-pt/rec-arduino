@@ -11,7 +11,7 @@
 #define RBUF_SIZE 80
 #define BAUDRATE 115200
 
-#define TIMEOUT 30000 //miliseconds
+
 
 extern void serialEvent();
 extern void init_pointers();
@@ -157,11 +157,13 @@ extern class experiment {
         ids_time = new_time;
       }
 
-      if (out_time > new_time + TIMEOUT)
+      if (new_time > out_time + TIMEOUT)
+      {
         state = STOPPING;
+        out_time = new_time;
+      }
 
-
-      if (state == STOPPING)
+      if (state == STOPPED)
         out_time = new_time;
 
       if (command_received) {
