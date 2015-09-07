@@ -41,7 +41,7 @@ It accepts a minimum of 2 and a maximum of `NARGUMENTS + 1` arguments. The first
 ```
 cfg 2 45 9 24
 ```
-  This command configures the experiment to run protocol number 2 with parameters:
+  This command configures the experiment to run [protocol #2] with parameters:
 
   Variable | Value
   ------------ | -------------
