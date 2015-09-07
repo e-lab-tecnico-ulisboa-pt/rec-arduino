@@ -28,7 +28,7 @@ Communication between software (user) and hardware is made through a serial conn
 
 ###Commands
 The software (user) interacts with the following commands:
-- `cfg`: configuration string. It accepts a minimum of 2 and a maximum of `NPROTOCOLS + 1` arguments. The first argument is always the protocol number. The following `NPROTOCOLS` arguments, separated by spaces or `\r` will be stored at `param` vector.
+- `cfg`: configuration string. It accepts a minimum of 2 and a maximum of `NARGUMENTS + 1` arguments. The first argument is always the protocol number. The following `NARGUMENTS` arguments, separated by spaces or `\r` will be stored at `param` vector.
 
 Example for a 3 parameters experiment:
 ```
@@ -116,7 +116,7 @@ extern class P?: public proto {
     }
 } PP?;
 ```
-2) Change the value of NPROTOCOLS in `user_define.h` for the appropriate number:
+2) Change the value of `NPROTOCOLS` in `user_define.h` for the appropriate number (number of diferent protocols used in the experiment).
 ```
 #define NPROTOCOLS ?
 ```
