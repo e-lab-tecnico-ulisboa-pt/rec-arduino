@@ -13,7 +13,7 @@ This laboratory provides remote control of real physics experiments over the Int
 - to allow the realization of not so safe experiments (e.g. radioactivity), and
 - to provide expensive experiments which can not be acquired by a school or institution. Because of this, e-lab is a free, accessible, remotely controlled laboratory and can be accessed by everyone which has a computer with internet.
 
-##Rec Generic Driver
+##ReC Generic Driver
 In the e-lab laboratory, experiments are controlled using the ReC (Remote Experiment Control) Generic Driver, a standard protocol for all experiments. It is based on a state machine with 4 possible states, as well as 4 transition states, where states in bold are **active states**, for which functions shall be defined as explained below.
 - **stopping**
 - stopped
@@ -24,7 +24,13 @@ In the e-lab laboratory, experiments are controlled using the ReC (Remote Experi
 - reseting
 - reseted
 
-Communication between software (user) and hardware is made through a serial connection. This is handled by the library (baudrate can be changed at `user_define.h`, default 115200). 
+Communication between software (user) and hardware is made through a serial connection. This is handled by the library (baudrate can be changed at `user_define.h`, default 115200).
+
+Information is passed from the computer to the Arduino with standardized *commands*, and from it to the computer in a preformated string - *data*.
+
+The execution of the experiment uses *protocols*. The same apparatus can be runned in different modes, for example an optical apparatus can be used to measure the refraction index of a material or to study Fresnell's equations. In this case the configurations and *data* retrieved would necessarily be different.
+> If by now you are not sure of what a protocol means, just stick to protocol 1.
+> Protocol 0 is to be used only for presenting help messages or for debug purposes.
 
 ###Commands
 The software (user) interacts with the following commands:
@@ -49,7 +55,7 @@ expr.param[2] | 24
 
 > Only integer values are accepted. If you are on the need for decimal values, consider modifing the scale (using miliseconds instead of seconds for example)
 
-> Protocol 0 is to be used only for presenting help messages or for debug purposes.
+
 
 This commands runs function `configuring()` for the selected protocol.
 
@@ -87,7 +93,10 @@ Simply clone this repository and open the file `e-lab.ino`.
 Add the code to the appropriate functions, as described below.
 
 ##Adding a new protocol
-(Replace ? with the protocol number)
+
+> Replace `?` with the protocol number.
+>`?` must be a positive integer.
+> Do not skip numbers
 
 1) Add a file named `p?.h` according to the following model:
 ```Cpp
