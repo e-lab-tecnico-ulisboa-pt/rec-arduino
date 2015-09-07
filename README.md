@@ -14,7 +14,7 @@ This laboratory provides remote control of real physics experiments over the Int
 - to provide expensive experiments which can not be acquired by a school or institution. Because of this, e-lab is a free, accessible, remotely controlled laboratory and can be accessed by everyone which has a computer with internet.
 
 ##Rec Generic Driver
-In the e-lab laboratory, experiments are controlled using the ReC (Remote Experiment Control) Generic Driver, a standard protocol for all experiments. It is based on a state machine with 4 possible states, as well as 4 transition states, where states in **bold** are active states, for which functions shall be defined as explained below.
+In the e-lab laboratory, experiments are controlled using the ReC (Remote Experiment Control) Generic Driver, a standard protocol for all experiments. It is based on a state machine with 4 possible states, as well as 4 transition states, where states in bold are **active states**, for which functions shall be defined as explained below.
 - **stopping**
 - stopped
 - **configuring**
@@ -28,7 +28,7 @@ Communication between software (user) and hardware is made through a serial conn
 
 ###Commands
 The software (user) interacts with the following commands:
-- `cfg`: configuration string. It accepts a minimum of 2 and a maximum of `NPROTOCOLS + 1`. The first argument is always the protocol number. The following arguments will be stored at `param` vector.
+- `cfg`: configuration string. It accepts a minimum of 2 and a maximum of `NPROTOCOLS + 1` arguments. The first argument is always the protocol number. The following `NPROTOCOLS` arguments, separated by spaces or `\r` will be stored at `param` vector.
 
 Example for a 3 parameters experiment:
 ```
@@ -38,9 +38,9 @@ This command configures the experiment to run protocol number 2 with parameters:
 
 Variable | Value
 ------------ | -------------
-param[0] | 45
-param[1] | 9
-param[2] | 24
+expr.param[0] | 45
+expr.param[1] | 9
+expr.param[2] | 24
 
 > Note that the number of parameters must be the same for all protocols (but not all need to be used)
 
