@@ -62,7 +62,7 @@ cfg 2 45 9 24
 After receiving this command the experiment will start executing by running function `starting()` of the selected protocol. No arguments are needed. When this function ends, function `started()` of the selected protocol will start.
 #### `stp` - Stop instruction.
 After receiving this command the experiment will stop executing by running function `stopping()` of the selected protocol. No arguments are needed.
-#### `rst`- Reset instruction.
+#### `rst` - Reset instruction.
 Normally not used. No arguments are needed.
 #### `cur` - Print current configuration.
 Normally not used. No arguments are needed.
