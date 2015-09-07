@@ -14,7 +14,7 @@ This laboratory provides remote control of real physics experiments over the Int
 - to provide expensive experiments which can not be acquired by a school or institution. Because of this, e-lab is a free, accessible, remotely controlled laboratory and can be accessed by everyone which has a computer with internet.
 
 ##Rec Generic Driver
-In the e-lab laboratory, experiments are controlled using the ReC (Remote Experiment Control) Generic Driver, a standard protocol for all experiments. It is based on a state machine with 4 possible states, as well as 4 transition states, where states in **bold** are active states, for which functions shall be defined as explained below.
+In the e-lab laboratory, experiments are controlled using the ReC (Remote Experiment Control) Generic Driver, a standard protocol for all experiments. It is based on a state machine with 4 possible states, as well as 4 transition states, where states in bold are **active states**, for which functions shall be defined as explained below.
 - **stopping**
 - stopped
 - **configuring**
